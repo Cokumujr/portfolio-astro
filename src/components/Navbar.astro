@@ -1,0 +1,105 @@
+---
+import { Button } from "./ui/button";
+import MobileMenu from "./ui/MobileMenu";
+import { ModeToggle } from "./ui/ModeToggle";
+---
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const getThemePreference = () => {
+            if (
+                typeof localStorage !== "undefined" &&
+                localStorage.getItem("theme")
+            ) {
+                return localStorage.getItem("theme");
+            }
+            return window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+        };
+        const isDark = getThemePreference() === "dark";
+        document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+        if (typeof localStorage !== "undefined") {
+            const observer = new MutationObserver(() => {
+                const isDark =
+                    document.documentElement.classList.contains("dark");
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+            });
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ["class"],
+            });
+        }
+    });
+</script>
+
+<nav class="px-6 py-6 w-full">
+    <!-- Desktop Layout -->
+    <div class="hidden md:grid md:grid-cols-3 gap-4 items-center">
+        <!-- left side my name  -->
+        <div class="justify-start">
+            <h1
+                class="text-2xl font-bold text-primary flex-shrink-0 lg:text-4xl"
+            >
+                Cokumu.dev
+            </h1>
+        </div>
+        <!-- menu centered  -->
+        <div class="justify-self-center">
+            <div
+                class="px-6 py-2 sticky top-4 z-50 bg-background/50 backdrop-blur-md
+             rounded-full border border-border/20 shadow-lg/50"
+            >
+                <ul class="flex items-center list-none gap-8">
+                    <li>
+                        <a
+                            href="#projects"
+                            class="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
+                        >
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#about"
+                            class="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
+                        >
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#contact"
+                            class="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
+                        >
+                            Contact
+                        </a>
+                    </li>
+                    <li><ModeToggle client:load /></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- cv cta -->
+        <div class="flex-shrink-0 justify-self-end">
+            <Button class="py-4 text-2xl">
+                <a href="/resume.pdf" download>Download CV</a>
+            </Button>
+        </div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="flex items-center justify-between md:hidden">
+        <!-- Logo -->
+        <div>
+            <h1 class="text-2xl font-bold text-primary">Cokumu.dev</h1>
+        </div>
+
+        <!-- Mode Toggle & Hamburger Menu -->
+        <div class="flex items-center gap-2">
+            <ModeToggle client:load />
+            <MobileMenu client:load />
+        </div>
+    </div>
+</nav>

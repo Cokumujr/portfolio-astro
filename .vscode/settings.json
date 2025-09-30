@@ -1,0 +1,5 @@
+{
+    "tailwindCSS.lint.invalidApply": "ignore",
+    "tailwindCSS.experimental.configFile": null,
+    "css.lint.unknownAtRules": "ignore"
+}
