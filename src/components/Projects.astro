@@ -1,0 +1,101 @@
+---
+import { getCollection } from "astro:content";
+import Container from "./Container.astro";
+import {
+    Card,
+    CardAction,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Button } from "./ui/button";
+import { FaGithub } from "react-icons/fa";
+import { ExternalLink } from "lucide-react";
+
+const projects = await getCollection("projects");
+const heading = "My Projects";
+---
+
+<Container>
+    <div class="space-y-6">
+        <h1 class="text-2xl md:text-4xl font-bold text-center">{heading}</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {
+                projects.map((project) => (
+                    <Card class="flex flex-col">
+                        <CardHeader>
+                            <img
+                                src={project.data.image}
+                                alt={project.data.title}
+                                class="w-full h-48 object-cover rounded-t-lg mb-4"
+                            />
+                            <CardTitle class="text-shadow-lg text-2xl ">
+                                {project.data.title}
+                            </CardTitle>
+                            <CardDescription>
+                                {project.data.description}
+                            </CardDescription>
+                        </CardHeader>
+
+                        <CardContent class="flex-grow">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                {project.data.tech.map((tech) => (
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                            <ul class="space-y-2 text-sm text-muted-foreground">
+                                {project.data.highlights.map((highlight) => (
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary mt-1">
+                                            {" "}
+                                            •{" "}
+                                        </span>
+                                        {highlight}
+                                    </li>
+                                ))}
+                            </ul>
+                        </CardContent>
+
+                        <CardFooter className="flex-col sm:flex-row gap-3">
+                            <Button
+                                variant="default"
+                                className="w-full sm:flex-1"
+                            >
+                                <a
+                                    href={project.data.githubURL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex items-center justify-center gap-2"
+                                >
+                                    <FaGithub />
+                                    GitHub
+                                </a>
+                            </Button>
+
+                            {project.data.liveSiteURL && (
+                                <Button
+                                    variant="outline"
+                                    className="w-full sm:flex-1"
+                                >
+                                    <a
+                                        href={project.data.liveSiteURL}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="flex items-center justify-center gap-2"
+                                    >
+                                        <ExternalLink />
+                                        Live Site
+                                    </a>
+                                </Button>
+                            )}
+                        </CardFooter>
+                    </Card>
+                ))
+            }
+        </div>
+    </div>
+</Container>

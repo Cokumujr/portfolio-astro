@@ -1,9 +1,107 @@
 ---
 import Container from "./Container.astro";
+import { Button } from "./ui/button";
+import { CircleArrowDown } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 ---
 
 <Container>
-    <div>
-        <p>Hero section</p>
-    </div>
+    <section class="min-h-[screen-80px] flex items-center justify-center">
+        <div
+            class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-2 w-full items-center"
+        >
+            <!-- Content on left -->
+            <div class="order-2 md:order-1 space-y-6">
+                <div class="font-epilogue">
+                    <p class="text-lg text-muted-foreground font-medium mb-2">
+                        Hi there! I'm
+                    </p>
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2"
+                    >
+                        Cokumu Junior
+                    </h1>
+                    <h2
+                        class="text-xl md:text-2xl lg:text-3xl text-primary font-semibold"
+                    >
+                        A Full Stack Developer
+                    </h2>
+                </div>
+                <p
+                    class="text-base md:text-lg text-muted-foreground font-epilogue"
+                >
+                    I’m a Full-Stack Developer specializing in React.js,
+                    Next.js, Node.js, and database management. I build scalable,
+                    high-performance web applications, robust back-end
+                    architecture, and efficient API integrations.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <Button size="lg">
+                        <a href="#projects" class="flex items-center gap-2">
+                            View My Work
+                            <CircleArrowDown />
+                        </a>
+                    </Button>
+                    <Button size="lg" variant="outline">
+                        <a href="#contact">Let's Talk</a>
+                    </Button>
+                </div>
+
+                <div class="flex gap-4 pt-4">
+                    <a
+                        href="https://github.com/Cokumujr"
+                        class="text-muted-foreground hover:text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub Profile"
+                    >
+                        <FaGithub />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/cokumu-junior-332010288/"
+                        class="text-muted-foreground hover:text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn Profile"
+                    >
+                        <FaLinkedin />
+                    </a>
+                </div>
+            </div>
+            <!-- mascot on right -->
+            <div class="flex justify-center md:justify-end order-1 md:order-2">
+                <div class="relative">
+                    <!-- Subtle glow effect -->
+                    <div
+                        class="absolute inset-0 bg-primary/10 rounded-full blur-3xl scale-75"
+                    >
+                    </div>
+
+                    <!-- Mascot with floating animation -->
+                    <img
+                        src="/images/mascot/mascot-wave.png"
+                        alt="Friendly robot mascot waving hello"
+                        class="relative w-64 h-64 md:w-72 md:h-72 lg:w-92 lg:h-92 object-contain animate-float drop-shadow-2xl"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
 </Container>
+
+<style>
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+</style>

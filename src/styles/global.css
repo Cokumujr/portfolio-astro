@@ -1,10 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    /* Map your custom theme to shadcn variables */
+
     --background: hsl(256, 50%, 90%);
     --foreground: hsl(256, 50%, 10%);
     --card: hsl(256, 50%, 95%);
@@ -33,7 +34,7 @@
 }
 
 .dark {
-    /* Dark mode with your custom theme */
+
     --background: hsl(256, 50%, 10%);
     --foreground: hsl(256, 50%, 90%);
     --card: hsl(256, 50%, 12%);
@@ -61,13 +62,13 @@
 }
 
 @theme inline {
-    /* Radius utilities */
+
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
     --radius-xl: calc(var(--radius) + 4px);
 
-    /* Expose shadcn colors to Tailwind */
+
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-card: var(--card);
@@ -92,6 +93,8 @@
     --color-chart-3: var(--chart-3);
     --color-chart-4: var(--chart-4);
     --color-chart-5: var(--chart-5);
+    --font-epilogue: "Epilogue", sans-serif;
+    --font-man: "Manrope", sans-serif;
 }
 
 @layer base {

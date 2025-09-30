@@ -6,10 +6,32 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 <footer class="flex items-center justify-center flex-col py-6 gap-2">
     <div class="flex flex-col items-center justify-center md:flex-row gap-4">
-        <a href="mailto:cokumujnr@gmail.com"> <Mail size={36} /> </a>
-        <a href="https://github.com/Cokumujr"> <FaGithub size={36} /> </a>
-        <a href="https://www.linkedin.com/in/cokumu-junior-332010288/">
-            <FaLinkedin size={36} />
+        <a
+            href="mailto:cokumujnr@gmail.com"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Email"
+        >
+            <Mail size={30} />
+        </a>
+        <a
+            href="https://github.com/Cokumujr"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+        >
+            <FaGithub size={30} />
+        </a>
+        <a
+            href="https://www.linkedin.com/in/cokumu-junior-332010288/"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+        >
+            <FaLinkedin size={30} />
         </a>
     </div>
     <div class="flex flex-col text-center justify-center text-sm">

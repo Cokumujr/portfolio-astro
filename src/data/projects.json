@@ -1,0 +1,65 @@
+{
+    "chatjyuce": {
+        "title": "ChatJyuce",
+        "slug": "chatjyuce",
+        "description": "A real-time messaging application with secure authentication and presence indicators. Built with React, Node.js, MongoDB, Socket.io, and JWT, supporting 50+ concurrent users with optimized database queries for improved performance.",
+        "image": "/images/projects/chatjyuce.png",
+        "githubURL": "https://github.com/Cokumujr/Real-time-ChatApp",
+        "liveSiteURL": "https://real-time-chatapp-kznb.onrender.com/login",
+        "tech": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Socket.io",
+            "JWT",
+            "Express"
+        ],
+        "highlights": [
+            "Real-time messaging with WebSocket connections",
+            "JWT-based authentication and authorization",
+            "User presence indicators and typing status",
+            "Database query optimization (~20% performance improvement)"
+        ]
+    },
+    "wagwan": {
+        "title": "Wagwan",
+        "slug": "wagwan",
+        "description": "A full-stack social platform featuring authentication, file uploads, and real-time UI updates. Built with Next.js 13, TypeScript, PostgreSQL, and Prisma ORM, designed for smooth concurrent user interactions.",
+        "image": "/images/projects/wagwan.png",
+        "githubURL": "https://github.com/Cokumujr/wagwan",
+        "liveSiteURL": "https://wagwan-alpha.vercel.app",
+        "tech": [
+            "Next.js 13",
+            "TypeScript",
+            "PostgreSQL",
+            "Prisma ORM",
+            "TailwindCSS"
+        ],
+        "highlights": [
+            "Type-safe development with TypeScript",
+            "Scalable database schemas with Prisma ORM",
+            "File upload and management system",
+            "Real-time UI updates and interactions"
+        ]
+    },
+    "portfolio": {
+        "title": "My Portfolio",
+        "slug": "portfolio",
+        "description": "A modern, responsive portfolio website showcasing my journey from electrical engineering to software development. Built with Astro, React, and TailwindCSS for optimal performance and clean design.",
+        "image": "/images/projects/portfolio.png",
+        "githubURL": "https://github.com/Cokumujr/portfolio-astro",
+        "liveSiteURL": "",
+        "tech": [
+            "Astro",
+            "React",
+            "TailwindCSS",
+            "TypeScript"
+        ],
+        "highlights": [
+            "Fast, static-first architecture with Astro",
+            "Responsive design optimized for all devices",
+            "Dynamic project showcase with filtering",
+            "Accessibility-focused implementation"
+        ]
+    }
+}
