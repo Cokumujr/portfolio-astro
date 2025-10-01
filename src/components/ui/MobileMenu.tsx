@@ -5,7 +5,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "./dropdown-menu";
@@ -15,13 +14,13 @@ const MobileMenu = () => {
     return (
         <>
             <div className="flex items-center gap-2">
-                <DropdownMenu>
+                <DropdownMenu modal={false}>
                     <DropdownMenuTrigger asChild>
                         <Button className="h-6 w-6" variant="ghost" size="icon">
                             <SquareMenu />
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
+                    <DropdownMenuContent align="end" className="w-48">
                         <DropdownMenuItem asChild>
                             <a href="#projects" className="cursor-pointer">Projects</a>
                         </DropdownMenuItem>

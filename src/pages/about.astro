@@ -1,9 +1,7 @@
 ---
 // pages/about.astro
-
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
-
 import quotesData from "../data/quotes.json";
 
 // Shuffle and pick 4 random quotes
@@ -15,44 +13,46 @@ const selectedQuotes = shuffled.slice(0, 4);
     <div class="min-h-screen py-12">
         <Container>
             <div
-                class="grid md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] gap-8 md:gap-12"
+                class="grid grid-cols-1 md:grid-cols-[320px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12"
             >
-                <!-- Left: Fixed Mascot -->
-                <div class="md:sticky md:top-32 h-fit">
-                    <div class="relative">
-                        <!-- Glow effect -->
-                        <div
-                            class="absolute inset-0 bg-primary/10 rounded-full blur-3xl scale-75"
-                        >
+                <!-- Left: Fixed Mascot Container -->
+                <div class="relative">
+                    <div class="md:sticky md:top-32">
+                        <div class="relative">
+                            <!-- Glow effect -->
+                            <div
+                                class="absolute inset-0 bg-primary/10 rounded-full blur-3xl scale-75"
+                            >
+                            </div>
+
+                            <!-- Mascot pointing -->
+                            <img
+                                src="/images/mascot/mascot-pointing.png"
+                                alt="Robot mascot"
+                                class="relative w-full max-w-xs mx-auto drop-shadow-2xl"
+                            />
                         </div>
 
-                        <!-- Mascot pointing -->
-                        <img
-                            src="/images/mascot/mascot-pointing.png"
-                            alt="Robot mascot"
-                            class="relative w-full max-w-xs mx-auto drop-shadow-2xl"
-                        />
-                    </div>
-
-                    <!--  Fun quote Directive bubble -->
-                    <div
-                        class="mt-6 p-4 bg-card border border-border rounded-2xl text-center hidden md:block"
-                    >
-                        <p class="text-sm text-muted-foreground italic">
-                            Keep scrolling to learn more about me! 👉
-                        </p>
+                        <!-- Fun quote bubble -->
+                        <div
+                            class="mt-6 p-4 bg-card border border-border rounded-2xl text-center hidden md:block"
+                        >
+                            <p class="text-sm text-muted-foreground italic">
+                                Keep scrolling to learn more about me! 👉
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Right: Scrollable Content -->
-                <div class="space-y-8 max-w-3xl">
+                <div class="space-y-12 max-w-3xl">
                     <!-- Header -->
                     <div>
                         <h1 class="text-4xl md:text-5xl font-bold mb-4">
                             About Me
                         </h1>
                         <p class="text-xl text-muted-foreground">
-                            More than just code - the full picture
+                            More than just code — the full picture
                         </p>
                     </div>
 
@@ -61,108 +61,220 @@ const selectedQuotes = shuffled.slice(0, 4);
                         <h2 class="text-3xl font-bold text-primary">
                             The Journey
                         </h2>
-                        <div class="prose prose-lg dark:prose-invert">
+                        <div class="space-y-4 text-base leading-relaxed">
                             <p>
                                 From electrical engineering to full-stack
-                                development my path hasn't been linear,when is
-                                life ever ?, and that's what makes it
-                                interesting. I started tinkering with circuits
-                                and hardware, but somewhere along the way not so
-                                long ago, I was drawn to the logic and
-                                creativity of software and the sheer possibility
-                                of building so much with it.
+                                development, my path hasn't exactly been linear.
+                                Then again, when is life ever? That's what makes
+                                it interesting. I started out tinkering with
+                                circuits and hardware, but somewhere along the
+                                way,not too long ago,I was pulled into the logic
+                                and creativity of software and the sheer
+                                possibility of what you can build with it.
                             </p>
                             <p>
-                                What started as automating boring tasks turned
-                                into building full applications, and now I spend
-                                so many hours infront of the screen. The moment
-                                when your code finally works after hours of
-                                debugging? That never gets old.
+                                What began as automating boring little tasks
+                                quickly turned into building full applications,
+                                and before I knew it I was spending countless
+                                hours in front of the screen. The moment your
+                                code finally works after hours of debugging
+                                never gets old. I consider chasing a bug the
+                                ultimate equalizer,it humbles the experts and
+                                the rookies alike, haha.
                             </p>
                         </div>
                     </section>
 
-                    <!-- Beyond Code -->
+                    <!-- Quick Facts -->
                     <section class="space-y-4">
+                        <h2 class="text-3xl font-bold text-primary">
+                            Quick Facts
+                        </h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div
+                                class="p-4 bg-card border border-border rounded-lg text-center"
+                            >
+                                <p class="text-3xl font-bold text-primary">
+                                    2+
+                                </p>
+                                <p class="text-sm text-muted-foreground">
+                                    Years Coding
+                                </p>
+                            </div>
+                            <div
+                                class="p-4 bg-card border border-border rounded-lg text-center"
+                            >
+                                <p class="text-3xl font-bold text-primary">
+                                    10+
+                                </p>
+                                <p class="text-sm text-muted-foreground">
+                                    Projects Built
+                                </p>
+                            </div>
+                            <div
+                                class="p-4 bg-card border border-border rounded-lg text-center"
+                            >
+                                <p class="text-3xl font-bold text-primary">∞</p>
+                                <p class="text-sm text-muted-foreground">
+                                    Bugs Fixed
+                                </p>
+                            </div>
+                            <div
+                                class="p-4 bg-card border border-border rounded-lg text-center"
+                            >
+                                <p class="text-3xl font-bold text-primary">
+                                    24/7
+                                </p>
+                                <p class="text-sm text-muted-foreground">
+                                    Learning Mode
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="border-t border-border/50"></div>
+
+                    <!-- Beyond Code -->
+                    <section class="space-y-6">
                         <h2 class="text-3xl font-bold text-primary">
                             Beyond the Code
                         </h2>
-                        <div class="prose prose-lg dark:prose-invert">
+
+                        <div class="space-y-4 text-base leading-relaxed">
                             <p>
-                                When I'm not staring at a screen (which, let's
-                                be honest, is rare),or navigating the tricky
-                                tech job market you'll find me:
+                                Beyond code, I'm deeply committed to causes that
+                                matter. Effective Mental health management, rare
+                                disease awareness, and addiction recovery aren't
+                                just buzzwords to me, they're issues I care
+                                about because I've seen how much they impact
+                                real people. I believe everyone deserves access
+                                to resources and support in these areas,
+                                regardless of their circumstances.
                             </p>
-                            <ul class="space-y-2">
-                                <li>
-                                    Hatewatching on Manchester United and other
-                                    football rivals. If it involves hurting
-                                    Manchester United fans sign me up.
-                                </li>
-                                <li>
-                                    Discussing or Watching films of a variety of
-                                    genres.Preferrably not on Netflix there is
-                                    so much better content elsewhere. Do better
-                                    lol. Greatly recommend AppleTv+.Tell me why
-                                    McConaughey didn't win the emmy for True
-                                    Detective in 2014 ?
-                                </li>
-                                <li>
-                                    Listening to a wide variety of music.Yes my
-                                    shuffle caters for everyone in the car. In
-                                    another life I believe I'd make a good DJ.
-                                    Music is such an important part of the human
-                                    experience,one of the best parts infact.
-                                    Absolutely recommend Ludovico Einaudi and
-                                    Hans Zimmer when coding or studying.
-                                </li>
-                                <li>
-                                    Playing football or doing some outdoor
-                                    Activity that compensates for all the
-                                    sitting behind a screen. Endorphins are a
-                                    hack for that good Mental Health.
-                                </li>
-                            </ul>
-                            <p class="mt-4">
-                                Aside from being a loud Football fanatic, a
-                                passionate Cinephile, a brother and a son I am a
-                                friend who strongly believes in effective Mental
-                                health management, Rare disease management and
-                                Addiction Recovery. I believe this are very
-                                essential in the society and should be taken
-                                very seriously and are part of the reasons why I
-                                pivoted into Software Engineering.I would be
-                                very willing to have conversations, start them
-                                even, colllaborate and learn in any way
-                                whatsoever to ensure we have software solutions
-                                or otherwise that are championing this causes.
-                                Don't hesitate to reach out to me!
+                            <p>
+                                These commitments are actually part of why I
+                                pivoted into software engineering. Technology
+                                has genuine power to democratize access to
+                                critical resources, and I want to work on
+                                projects that leverage that potential for real
+                                social good. If you're building tools in
+                                healthtech, accessibility, or platforms for
+                                underserved communities, let's talk.
                             </p>
                         </div>
+
+                        <p class="text-base leading-relaxed">
+                            When I'm not glued to a screen (rare, I know) or
+                            navigating the volatile tech job market, you'll
+                            probably find me:
+                        </p>
+
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span
+                                    class="text-primary text-2xl flex-shrink-0 mt-0.5"
+                                    >⚽</span
+                                >
+                                <div class="text-base leading-relaxed">
+                                    <strong
+                                        >Hate-watching Manchester United and
+                                        other rivals.</strong
+                                    > If it involves giving United fans grief, sign
+                                    me up.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span
+                                    class="text-primary text-2xl flex-shrink-0 mt-0.5"
+                                    >🎬</span
+                                >
+                                <div class="text-base leading-relaxed">
+                                    <strong
+                                        >Talking about or watching films across
+                                        genres.</strong
+                                    > Preferably not on Netflix,do better. Apple
+                                    TV+ has been a revelation. And don't get me started
+                                    on why McConaughey didn't win the Emmy for <em
+                                        >True Detective</em
+                                    > in 2014. I'm still bitter.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span
+                                    class="text-primary text-2xl flex-shrink-0 mt-0.5"
+                                    >🎵</span
+                                >
+                                <div class="text-base leading-relaxed">
+                                    <strong
+                                        >Listening to music across the spectrum.</strong
+                                    > My shuffle is everyone's shuffle, yes, I can
+                                    DJ your car ride. In another life, I'd probably
+                                    be behind turntables full-time. For coding or
+                                    studying, Ludovico Einaudi and Hans Zimmer are
+                                    unmatched.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span
+                                    class="text-primary text-2xl flex-shrink-0 mt-0.5"
+                                    >⚡</span
+                                >
+                                <div class="text-base leading-relaxed">
+                                    <strong
+                                        >Playing football or doing something
+                                        outdoors</strong
+                                    > to make up for all the hours sitting down.
+                                    Endorphins are nature's hack for mental health.
+                                </div>
+                            </li>
+                        </ul>
+
+                        <p class="text-base leading-relaxed">
+                            Cinema, football, music, and even political
+                            discourse keep me engaged with the world outside my
+                            IDE. I don't see these as separate from my work,far
+                            from it,they influence how I think about
+                            storytelling in interfaces, how systems serve
+                            diverse communities, and how technology fits into
+                            culture at large.
+                        </p>
                     </section>
 
-                    <!-- Tech Philosophy -->
+                    <div class="border-t border-border/50"></div>
+
+                    <!-- How I Build -->
                     <section class="space-y-4">
                         <h2 class="text-3xl font-bold text-primary">
                             How I Build
                         </h2>
-                        <div class="prose prose-lg dark:prose-invert">
+                        <div class="space-y-4 text-base leading-relaxed">
                             <p>
-                                I believe good code is like good design - it
-                                should just work without you noticing it. I'm
-                                all about clean, maintainable code that doesn't
-                                need a PhD to understand.
+                                Good code, like good design, should work so
+                                smoothly you hardly notice it. I aim for clean,
+                                maintainable solutions that don't require a PhD
+                                to figure out.
                             </p>
                             <p>
-                                My approach: Start simple, iterate often, and
-                                never stop learning. The tech world moves so
-                                fast, and staying curious is the only way to
-                                keep up. Mentors are key in bridging skill gaps.
+                                My process is simple: start small, iterate
+                                often, and never stop learning. Tech moves fast,
+                                and staying curious is the only way to keep up.
+                                Mentorship plays a huge role in bridging skill
+                                gaps, and I'm always open to being mentored,
+                                learning and sharing what I know.
+                            </p>
+                            <p>
+                                If you're building tools that matter,whether
+                                that's supporting mental health, creating
+                                platforms for underserved communities, or even
+                                just debating film or football tactics,I'd love
+                                to connect.
                             </p>
                         </div>
                     </section>
 
-                    <!-- Fun Facts -->
+                    <div class="border-t border-border/50"></div>
+
+                    <!-- Words That Stick -->
                     <section class="space-y-4">
                         <h2 class="text-3xl font-bold text-primary">
                             Words That Stick
@@ -185,23 +297,26 @@ const selectedQuotes = shuffled.slice(0, 4);
 
                     <!-- Call to Action -->
                     <section
-                        class="p-8 bg-primary/10 rounded-2xl border border-primary/20 text-center"
+                        class="p-6 md:p-8 bg-primary/10 rounded-2xl border border-primary/20 text-center space-y-4"
                     >
-                        <h2 class="text-2xl font-bold mb-4">Let's Connect</h2>
-                        <p class="text-muted-foreground mb-6">
+                        <h2 class="text-2xl font-bold">Let's Connect</h2>
+                        <p class="text-muted-foreground">
                             Whether you want to collaborate, chat about tech, or
-                            just say hi - my inbox is always open.
+                            just say hi, my inbox is always open.
                         </p>
-                        <p class="text-muted-foreground mb-2 text-sm">
-                            Don't be shy !
+                        <p class="text-muted-foreground text-sm">
+                            Don't be shy!
                         </p>
-                        <div class="flex flex-wrap gap-4 justify-center">
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center pt-2"
+                        >
                             <a
                                 href="/#contact"
                                 class="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
                             >
                                 Get In Touch
                             </a>
+
                             <a
                                 href="/resume.pdf"
                                 download
