@@ -1,12 +1,18 @@
 ---
 import Hero from "@/components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-import About from "@/components/About.astro";
 import Projects from "@/components/Projects.astro";
+import Contact from "@/components/Contact.astro";
 ---
 
-<Layout>
-	<Hero />
-	<Projects />
-	<About />
+<Layout title="Cokumu.dev">
+	<div class="space-y-2 md:space-y-4">
+		<Hero />
+		<section id="projects" class="scroll-mt-24">
+			<Projects />
+		</section>
+		<section id="contact" class="scroll-mt-24">
+			<Contact />
+		</section>
+	</div>
 </Layout>

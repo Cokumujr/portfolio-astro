@@ -1,0 +1,34 @@
+[
+    {
+        "name": "JavaScript",
+        "icon": "js"
+    },
+    {
+        "name": "TypeScript",
+        "icon": "ts"
+    },
+    {
+        "name": "React",
+        "icon": "react"
+    },
+    {
+        "name": "Next.js",
+        "icon": "next"
+    },
+    {
+        "name": "Node.js",
+        "icon": "node"
+    },
+    {
+        "name": "MongoDB",
+        "icon": "mongodb"
+    },
+    {
+        "name": "Postgres",
+        "icon": "postgres"
+    },
+    {
+        "name": "Python",
+        "icon": "python"
+    }
+]

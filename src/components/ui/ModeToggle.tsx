@@ -28,7 +28,7 @@ export function ModeToggle() {
     }, [theme])
 
     return (
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="icon">
                     <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
@@ -36,7 +36,7 @@ export function ModeToggle() {
                     <span className="sr-only">Toggle theme</span>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" sideOffset={8}>
                 <DropdownMenuItem onClick={() => setThemeState("theme-light")}>
                     Light
                 </DropdownMenuItem>

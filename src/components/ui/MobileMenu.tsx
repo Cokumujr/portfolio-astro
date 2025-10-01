@@ -27,7 +27,7 @@ const MobileMenu = () => {
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                            <a href="#about" className="cursor-pointer">About</a>
+                            <a href="/about" className="cursor-pointer">About</a>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>

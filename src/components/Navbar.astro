@@ -1,5 +1,5 @@
 ---
-import { Button } from "./ui/button";
+import DesktopMenu from "./ui/DesktopMenu";
 import MobileMenu from "./ui/MobileMenu";
 import { ModeToggle } from "./ui/ModeToggle";
 ---
@@ -34,69 +34,37 @@ import { ModeToggle } from "./ui/ModeToggle";
     });
 </script>
 
-<nav
-    class="sticky top-0 z-50 w-full px-6 py-6 bg-background/90 backdrop-blur-md border-b border-border/20"
->
-    <!-- Desktop Layout -->
-    <div class="hidden md:grid md:grid-cols-3 gap-4 items-center">
-        <!-- left side my name  -->
-        <div class="justify-start">
-            <h1
-                class="text-2xl font-bold text-primary flex-shrink-0 lg:text-4xl"
-            >
-                Cokumu.dev
-            </h1>
-        </div>
-        <!-- menu centered  -->
-        <div class="justify-self-center">
-            <div
-                class="px-6 py-2 bg-background/50 backdrop-blur-md
-             rounded-full border border-border/20 shadow-lg/50"
-            >
-                <ul class="flex items-center list-none gap-8">
-                    <li>
-                        <a
-                            href="#projects"
-                            class="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
-                        >
-                            Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#about"
-                            class="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
-                        >
-                            About
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#contact"
-                            class="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
-                        >
-                            Contact
-                        </a>
-                    </li>
-                    <li><ModeToggle client:load /></li>
-                </ul>
-            </div>
-        </div>
+<script>
+    document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        const link = target.closest("a");
 
-        <!-- cv cta -->
-        <div class="flex-shrink-0 justify-self-end">
-            <Button class="py-4 text-2xl">
-                <a href="/resume.pdf" download>Download CV</a>
-            </Button>
-        </div>
-    </div>
+        if (link && link.getAttribute("href")?.startsWith("#")) {
+            const hash = link.getAttribute("href");
+
+            // If not on homepage, go to homepage + hash
+            if (window.location.pathname !== "/") {
+                e.preventDefault();
+                window.location.href = "/" + hash;
+            }
+        }
+    });
+</script>
+
+<nav
+    class="fixed top-0 left-0 right-0 z-50 w-full px-6 py-6 bg-background/90 backdrop-blur-md border-b border-border/20"
+>
+    <!-- Desktop Menu -->
+    <DesktopMenu client:load />
 
     <!-- Mobile Layout -->
     <div class="flex items-center justify-between md:hidden">
         <!-- Logo -->
-        <div>
-            <h1 class="text-2xl font-bold text-primary">Cokumu.dev</h1>
-        </div>
+        <a href="/">
+            <h1 class="text-2xl font-bold text-primary cursor-pointer">
+                Cokumu.dev
+            </h1>
+        </a>
 
         <!-- Mode Toggle & Hamburger Menu -->
         <div class="flex items-center gap-2">
