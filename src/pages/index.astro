@@ -3,7 +3,25 @@ import Hero from "@/components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import Projects from "@/components/Projects.astro";
 import Contact from "@/components/Contact.astro";
+import { slide } from "astro:transitions";
 ---
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("animate-in");
+				}
+			});
+		},
+		{ threshold: 0.1 },
+	);
+
+	document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+		observer.observe(el);
+	});
+</script>
 
 <Layout title="Cokumu.dev">
 	<div class="space-y-2 md:space-y-4">
@@ -12,7 +30,7 @@ import Contact from "@/components/Contact.astro";
 			<Projects />
 		</section>
 		<section id="contact" class="scroll-mt-24">
-			<Contact />
+			<Contact transition:animate={slide({ duration: "2s" })} />
 		</section>
 	</div>
 </Layout>

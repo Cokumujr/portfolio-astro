@@ -30,5 +30,13 @@
     {
         "name": "Python",
         "icon": "python"
+    },
+    {
+        "name": "Tailwind",
+        "icon": "tailwind"
+    },
+    {
+        "name": "Express",
+        "icon": "express"
     }
 ]

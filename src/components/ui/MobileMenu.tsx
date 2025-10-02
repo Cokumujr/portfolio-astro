@@ -22,7 +22,7 @@ const MobileMenu = () => {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-48">
                         <DropdownMenuItem asChild>
-                            <a href="#projects" className="cursor-pointer">Projects</a>
+                            <a href="/#projects" className="cursor-pointer">Projects</a>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
@@ -30,7 +30,7 @@ const MobileMenu = () => {
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                            <a href="#contact" className="cursor-pointer">Contact</a>
+                            <a href="/#contact" className="cursor-pointer">Contact</a>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>

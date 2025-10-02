@@ -15,6 +15,8 @@ import {
     SiJavascript,
     SiTypescript,
     SiNextdotjs,
+    SiTailwindcss,
+    SiExpress,
 } from "react-icons/si";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -33,6 +35,8 @@ const icons = {
     mongodb: SiMongodb,
     postgres: SiPostgresql,
     python: FaPython,
+    tailwind: SiTailwindcss,
+    express: SiExpress
 };
 
 const chunk = (arr: typeof skills, size: number) =>

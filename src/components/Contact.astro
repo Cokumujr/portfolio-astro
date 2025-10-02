@@ -1,4 +1,5 @@
 ---
+import { slide } from "astro:transitions";
 import Container from "./Container.astro";
 import { Button } from "./ui/button";
 import {
@@ -50,7 +51,10 @@ import {
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div
+            class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+            transition:animate={slide({ duration: "4s" })}
+        >
             <!-- Contact Form -->
             <Card>
                 <CardHeader>
@@ -115,7 +119,7 @@ import {
                             ></textarea>
                         </div>
 
-                        <Button type="submit" class="w-full"
+                        <Button type="submit" className="w-full"
                             >Send Message</Button
                         >
                     </form>
@@ -125,7 +129,7 @@ import {
             <!-- Contact Info -->
             <div class="space-y-6">
                 <Card>
-                    <CardContent class="pt-6">
+                    <CardContent className="md:pt-4 pt-2">
                         <div class="flex items-start gap-4">
                             <div class="p-3 bg-primary/10 rounded-lg">
                                 <svg
@@ -156,7 +160,7 @@ import {
                 </Card>
 
                 <Card>
-                    <CardContent class="pt-6">
+                    <CardContent className="md:pt-4 pt-2">
                         <div class="flex items-start gap-4">
                             <div class="p-3 bg-primary/10 rounded-lg">
                                 <svg
@@ -185,7 +189,7 @@ import {
                 </Card>
 
                 <Card>
-                    <CardContent class="pt-6">
+                    <CardContent className="md:pt-4 pt-2">
                         <div class="flex items-start gap-4">
                             <div class="p-3 bg-primary/10 rounded-lg">
                                 <svg
@@ -216,10 +220,13 @@ import {
         </div>
 
         <!-- about link -->
-        <div class="mt-8 text-center">
+        <div
+            class="mt-8 text-center"
+            transition:animate={slide({ duration: "3s" })}
+        >
             <a
                 href="/about"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border rounded-lg hover:bg-accent/50 transition-colors group"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border rounded-lg hover:bg-accent/60 transition-colors group"
             >
                 <span
                     class="text-muted-foreground group-hover:text-foreground transition-colors"

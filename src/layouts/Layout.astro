@@ -2,15 +2,71 @@
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 ---
 
-<!doctype html>
+<script is:inline>
+	(function () {
+		console.log("🎬 Script executing");
+
+		function applyTheme() {
+			console.log("🎨 applyTheme called");
+
+			const theme = localStorage.getItem("theme");
+			console.log("📦 localStorage theme:", theme);
+
+			const prefersDark = window.matchMedia(
+				"(prefers-color-scheme: dark)",
+			).matches;
+			console.log("🌙 prefers-color-scheme dark:", prefersDark);
+
+			const isDark =
+				theme === "dark" ||
+				(theme === "system" && prefersDark) ||
+				(!theme && prefersDark);
+
+			console.log("✅ Applying dark mode:", isDark);
+			console.log(
+				"📋 Current classList before:",
+				document.documentElement.classList.toString(),
+			);
+
+			document.documentElement.classList[isDark ? "add" : "remove"](
+				"dark",
+			);
+
+			console.log(
+				"📋 Current classList after:",
+				document.documentElement.classList.toString(),
+			);
+		}
+
+		// Apply immediately
+		applyTheme();
+
+		// Re-apply after navigation
+		document.addEventListener("astro:after-swap", () => {
+			console.log("🔄 astro:after-swap fired");
+			applyTheme();
+		});
+
+		document.addEventListener("astro:page-load", () => {
+			console.log("📄 astro:page-load fired");
+			console.log(
+				"Final classList:",
+				document.documentElement.classList.toString(),
+			);
+		});
+	})();
+</script>
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{Astro.props.title}</title>
+		<ClientRouter />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +75,7 @@ import "../styles/global.css";
 			rel="stylesheet"
 		/>
 	</head>
+
 	<body class="flex flex-col min-h-screen pt-24">
 		<Navbar />
 		<main class="flex-1">

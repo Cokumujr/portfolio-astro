@@ -27,7 +27,7 @@ const DesktopMenu = () => {
                         <ul className="flex items-center list-none gap-8">
                             <li>
                                 <a
-                                    href="#projects"
+                                    href="/#projects"
                                     className="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
                                 >
                                     Projects
@@ -43,7 +43,7 @@ const DesktopMenu = () => {
                             </li>
                             <li>
                                 <a
-                                    href="#contact"
+                                    href="/#contact"
                                     className="hover:border-b-primary hover:border-b-2 transition-all font-semi-bold cursor-pointer text-shadow-lg"
                                 >
                                     Contact

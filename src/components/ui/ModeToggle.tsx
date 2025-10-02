@@ -10,22 +10,32 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function ModeToggle() {
-    const [theme, setThemeState] = React.useState<
-        "theme-light" | "dark" | "system"
-    >("theme-light")
+    const [theme, setThemeState] = React.useState<"light" | "dark" | "system">("light");
 
+    //  Load theme from localStorage on mount
     React.useEffect(() => {
-        const isDarkMode = document.documentElement.classList.contains("dark")
-        setThemeState(isDarkMode ? "dark" : "theme-light")
-    }, [])
+        const stored = localStorage.getItem("theme");
+        if (stored === "dark" || stored === "light" || stored === "system") {
+            setThemeState(stored);
+        } else {
+            // If nothing stored, check system preference
+            const isDarkMode = document.documentElement.classList.contains("dark");
+            setThemeState(isDarkMode ? "dark" : "light");
+        }
+    }, []);
 
+    // Apply theme and save to localStorage whenever it changes
     React.useEffect(() => {
         const isDark =
             theme === "dark" ||
             (theme === "system" &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-        document.documentElement.classList[isDark ? "add" : "remove"]("dark")
-    }, [theme])
+                window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+        document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+        // Save to localStorage for astro:swap usage 
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     return (
         <DropdownMenu modal={false}>
@@ -37,7 +47,7 @@ export function ModeToggle() {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" sideOffset={8}>
-                <DropdownMenuItem onClick={() => setThemeState("theme-light")}>
+                <DropdownMenuItem onClick={() => setThemeState("light")}>
                     Light
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setThemeState("dark")}>

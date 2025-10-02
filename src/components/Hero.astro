@@ -1,8 +1,10 @@
 ---
+import { slide } from "astro:transitions";
 import Container from "./Container.astro";
 import { Button } from "./ui/button";
 import { CircleArrowDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { fade } from "astro:transitions";
 ---
 
 <Container>
@@ -11,7 +13,10 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
             class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-2 w-full items-center"
         >
             <!-- Content on left -->
-            <div class="order-2 md:order-1 space-y-6">
+            <div
+                class="order-2 md:order-1 space-y-6"
+                transition:animate={fade({ duration: "2.6s" })}
+            >
                 <div class="font-epilogue">
                     <p class="text-lg text-muted-foreground font-medium mb-2">
                         Hi there! I'm
@@ -79,6 +84,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
                     <!-- Mascot with floating animation -->
                     <img
+                        transition:animate={fade({ duration: "1.6s" })}
                         src="/images/mascot/mascot-wave.png"
                         alt="Friendly robot mascot waving hello"
                         class="relative w-64 h-64 md:w-72 md:h-72 lg:w-92 lg:h-92 object-contain animate-float drop-shadow-2xl"

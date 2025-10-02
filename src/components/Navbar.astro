@@ -4,53 +4,6 @@ import MobileMenu from "./ui/MobileMenu";
 import { ModeToggle } from "./ui/ModeToggle";
 ---
 
-<script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const getThemePreference = () => {
-            if (
-                typeof localStorage !== "undefined" &&
-                localStorage.getItem("theme")
-            ) {
-                return localStorage.getItem("theme");
-            }
-            return window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light";
-        };
-        const isDark = getThemePreference() === "dark";
-        document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-        if (typeof localStorage !== "undefined") {
-            const observer = new MutationObserver(() => {
-                const isDark =
-                    document.documentElement.classList.contains("dark");
-                localStorage.setItem("theme", isDark ? "dark" : "light");
-            });
-            observer.observe(document.documentElement, {
-                attributes: true,
-                attributeFilter: ["class"],
-            });
-        }
-    });
-</script>
-
-<script>
-    document.addEventListener("click", (e) => {
-        const target = e.target as HTMLElement;
-        const link = target.closest("a");
-
-        if (link && link.getAttribute("href")?.startsWith("#")) {
-            const hash = link.getAttribute("href");
-
-            // If not on homepage, go to homepage + hash
-            if (window.location.pathname !== "/") {
-                e.preventDefault();
-                window.location.href = "/" + hash;
-            }
-        }
-    });
-</script>
-
 <nav
     class="fixed top-0 left-0 right-0 z-50 w-full px-6 py-6 bg-background/90 backdrop-blur-md border-b border-border/20"
 >

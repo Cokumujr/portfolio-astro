@@ -1,8 +1,8 @@
 ---
-// pages/about.astro
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
 import quotesData from "../data/quotes.json";
+import { fade, slide } from "astro:transitions";
 
 // Shuffle and pick 4 random quotes
 const shuffled = [...quotesData].sort(() => 0.5 - Math.random());
@@ -30,6 +30,7 @@ const selectedQuotes = shuffled.slice(0, 4);
                                 src="/images/mascot/mascot-pointing.png"
                                 alt="Robot mascot"
                                 class="relative w-full max-w-xs mx-auto drop-shadow-2xl"
+                                transition:animate={fade({ duration: "1.3s" })}
                             />
                         </div>
 
@@ -45,7 +46,10 @@ const selectedQuotes = shuffled.slice(0, 4);
                 </div>
 
                 <!-- Right: Scrollable Content -->
-                <div class="space-y-12 max-w-3xl">
+                <div
+                    class="space-y-12 max-w-3xl"
+                    transition:animate={slide({ duration: "2.3s" })}
+                >
                     <!-- Header -->
                     <div>
                         <h1 class="text-4xl md:text-5xl font-bold mb-4">
@@ -61,7 +65,7 @@ const selectedQuotes = shuffled.slice(0, 4);
                         <h2 class="text-3xl font-bold text-primary">
                             The Journey
                         </h2>
-                        <div class="space-y-4 text-base leading-relaxed">
+                        <div class="space-y-4 text-lg leading-relaxed">
                             <p>
                                 From electrical engineering to full-stack
                                 development, my path hasn't exactly been linear.
@@ -140,7 +144,7 @@ const selectedQuotes = shuffled.slice(0, 4);
                             Beyond the Code
                         </h2>
 
-                        <div class="space-y-4 text-base leading-relaxed">
+                        <div class="space-y-4 text-lg leading-relaxed">
                             <p>
                                 Beyond code, I'm deeply committed to causes that
                                 matter. Effective Mental health management, rare
@@ -163,7 +167,7 @@ const selectedQuotes = shuffled.slice(0, 4);
                             </p>
                         </div>
 
-                        <p class="text-base leading-relaxed">
+                        <p class="text-lg leading-relaxed">
                             When I'm not glued to a screen (rare, I know) or
                             navigating the volatile tech job market, you'll
                             probably find me:
@@ -229,7 +233,7 @@ const selectedQuotes = shuffled.slice(0, 4);
                             </li>
                         </ul>
 
-                        <p class="text-base leading-relaxed">
+                        <p class="text-lg leading-relaxed">
                             Cinema, football, music, and even political
                             discourse keep me engaged with the world outside my
                             IDE. I don't see these as separate from my work,far
@@ -247,7 +251,7 @@ const selectedQuotes = shuffled.slice(0, 4);
                         <h2 class="text-3xl font-bold text-primary">
                             How I Build
                         </h2>
-                        <div class="space-y-4 text-base leading-relaxed">
+                        <div class="space-y-4 text-lg leading-relaxed">
                             <p>
                                 Good code, like good design, should work so
                                 smoothly you hardly notice it. I aim for clean,
@@ -320,7 +324,7 @@ const selectedQuotes = shuffled.slice(0, 4);
                             <a
                                 href="/resume.pdf"
                                 download
-                                class="px-6 py-3 bg-card border border-border rounded-lg font-semibold hover:bg-accent transition-colors"
+                                class="px-6 py-3 bg-card border border-border rounded-lg font-semibold hover:bg-accent/65 transition-colors"
                             >
                                 Download CV
                             </a>
