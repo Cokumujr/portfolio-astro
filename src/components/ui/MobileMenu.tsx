@@ -34,7 +34,7 @@ const MobileMenu = () => {
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                            <a href="/resume.pdf" download className="cursor-pointer">Download CV</a>
+                            <a href="/Resume-3.pdf" download data-astro-reload className="cursor-pointer">Download CV</a>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

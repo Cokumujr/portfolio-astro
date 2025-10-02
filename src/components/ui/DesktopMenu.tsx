@@ -57,7 +57,7 @@ const DesktopMenu = () => {
                 {/* <!-- cv cta --> */}
                 <div className="flex-shrink-0 justify-self-end">
                     <Button className="py-4 text-xl">
-                        <a href="/resume.pdf" download>Download CV</a>
+                        <a href="/Resume-3.pdf" download data-astro-reload>Download CV</a>
                     </Button>
                 </div>
             </div>
